@@ -1,24 +1,35 @@
 import { Request, Response, NextFunction } from "express";
-import postService from "../services/post.service";
+import {
+  createPost,
+  addCommentToPost,
+  getPostWithComments,
+  getPost,
+  getPosts,
+  updatePost,
+  deletePost,
+} from "../services/post.service";
 
 class PostController {
   async createPost(req: Request, res: Response, next: NextFunction) {
-    return postService.createPost(req, res, next);
+    return createPost(req, res, next);
   }
   async addCommentToPost(req: Request, res: Response, next: NextFunction) {
-    return postService.addCommentToPost(req, res, next);
+    return addCommentToPost(req, res, next);
+  }
+  async getPostWithComments(req: Request, res: Response, next: NextFunction) {
+    return getPostWithComments(req, res, next);
   }
   async getPost(req: Request, res: Response, next: NextFunction) {
-    return postService.getPost(req, res, next);
+    return getPost(req, res, next);
   }
   async getPosts(req: Request, res: Response, next: NextFunction) {
-    return postService.getPosts(req, res, next);
+    return getPosts(req, res, next);
   }
   async updatePost(req: Request, res: Response, next: NextFunction) {
-    return postService.updatePost(req, res, next);
+    return updatePost(req, res, next);
   }
   async deletePost(req: Request, res: Response, next: NextFunction) {
-    return postService.deletePost(req, res, next);
+    return deletePost(req, res, next);
   }
 }
 

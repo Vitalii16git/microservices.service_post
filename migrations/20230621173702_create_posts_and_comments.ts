@@ -30,7 +30,7 @@ export async function up(knex: Knex): Promise<void> {
         .nullable()
         .references("comments.id")
         .onDelete("CASCADE");
-      table.text("content").notNullable();
+      table.text("content");
       table.timestamp("createdAt").defaultTo(knex.fn.now());
       table.timestamp("updatedAt").defaultTo(knex.fn.now());
     });

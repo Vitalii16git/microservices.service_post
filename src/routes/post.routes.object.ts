@@ -19,6 +19,14 @@ const routes = [
   },
   {
     method: "get",
+    routeName: "getPostWithComments",
+    url: "/getPostWithComments/:id",
+    validator: [],
+    middleware: [],
+    controller: postController.getPostWithComments,
+  },
+  {
+    method: "get",
     routeName: "getPosts",
     url: "/list",
     validator: [],

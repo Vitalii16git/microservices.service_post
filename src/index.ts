@@ -1,3 +1,4 @@
+import { messages } from "./utils/error.messages";
 import dotenv from "dotenv";
 dotenv.config();
 import express, { Application } from "express";
@@ -11,6 +12,10 @@ const PORT = process.env.PORT || 5055;
 app.use(express.json());
 app.use(cors());
 app.use("/post", router);
+
+app.use("*", (_req, res) => {
+  res.status(404).json({ message: messages.notFound });
+});
 
 app.listen(PORT, () => {
   logger.info(`Service is running on port ${PORT}`);
